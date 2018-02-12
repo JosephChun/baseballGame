@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class BaseballGame {
@@ -7,26 +6,19 @@ public class BaseballGame {
 	public static int[] userNumber;
 	
 	public static int[] ranNumList() {
-		comNumber = new int[3];
+		int tmp,random;
+		comNumber = new int[] {1,2,3,4,5,6,7,8,9};
 		for(int i=0; i<comNumber.length; i++) {
-			comNumber[i] = randomFill();
-			for(int j=0; j<i; j++) {
-				if (comNumber[i] == comNumber[j]) {
-					i--;
-					break;
-				}
-			}
+			random = (int)(Math.random()*comNumber.length);
+			random = Math.min(random,comNumber.length-1); // 인덱스 숫자 필요
+			// swap
+			tmp = comNumber[i];
+			comNumber[i] = comNumber[random];
+			comNumber[random] = tmp;
 		}
 		return comNumber;
 	}
 	
-	
-	public static int randomFill(){
-
-	    Random rand = new Random();
-	    int randomNum = rand.nextInt(10);
-	    return randomNum;
-	    }
 	
 	public static int[] userInput() {
 		Scanner scan = new Scanner(System.in);
@@ -52,7 +44,7 @@ public class BaseballGame {
 		int ball = 0;
 		for(int i=0;i<3;i++) {
             for(int j=0;j<3;j++) {
-                if (i!=j && comNumber[i]== userNumber[j]) ball++;
+                if (i!=j && comNumber[i] == userNumber[j]) ball++;
             }
         }
 		return ball;
