@@ -42,13 +42,11 @@ public class BaseballGame {
 	
 	public static int countBall() {
 		int ball = 0;
-		for(int i=0;i<3;i++) {
-            for(int j=0;j<3;j++) {
-                if (i!=j && comNumber[i] == userNumber[j]) ball++;
-            }
-        }
+		if(comNumber[0]==userNumber[1] || comNumber[0] == userNumber[2]) ball++;
+		if(comNumber[1]==userNumber[0] || comNumber[1] == userNumber[2]) ball++;
+		if(comNumber[2]==userNumber[0] || comNumber[2] == userNumber[1]) ball++;
 		return ball;
-	}
+	}3
 	
 	public static void display() {
 		
