@@ -38,7 +38,7 @@ public class BaseballGame {
 	public static int countBall(int[] comNumber, int[] userNumber) {
 		int ball = 0;
 		for(int i=0;i<3;i++) {
-            countBall2(i,comNumber,userNumber);
+            ball = countBall2(i,comNumber,userNumber);
         }
 		return ball;
 	}
