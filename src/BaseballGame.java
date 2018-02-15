@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BaseballGame {
@@ -26,10 +27,10 @@ public class BaseballGame {
 		}
 		return number;
 	}
-	
+		
 	public static int countStrike(int[] comNumber, int[] userNumber) {
 		int strike = 0;
-		for(int i=0; i<3; i++) {
+		for(int i=0; i<userNumber.length; i++) {
 			if (comNumber[i]==userNumber[i]) strike++;
 		}
 		return strike;
@@ -38,7 +39,7 @@ public class BaseballGame {
 	public static int countBall(int[] comNumber, int[] userNumber) {
 		int ball = 0;
 		for(int i=0;i<3;i++) {
-            ball = countBall2(i,comNumber,userNumber);
+            ball += countBall2(i,comNumber,userNumber);
         }
 		return ball;
 	}
